@@ -16,6 +16,7 @@ target/
 ### IntelliJ IDEA ###
 .idea/
 src/main/resources/application.yaml
+countthefoodapi.iml
 
 ### NetBeans ###
 /nbproject/private/
