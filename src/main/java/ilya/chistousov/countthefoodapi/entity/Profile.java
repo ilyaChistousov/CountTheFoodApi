@@ -16,9 +16,6 @@ public class Profile {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(unique = true)
-    private String email;
-
     private String gender;
 
     private String goal;
@@ -37,6 +34,9 @@ public class Profile {
 
     @Column(name = "desired_weight")
     private Float desiredWeight;
+
+    @Column(unique = true)
+    private String email;
 
     @OneToMany(cascade = CascadeType.ALL)
     private List<Food> foods = new ArrayList<>();
