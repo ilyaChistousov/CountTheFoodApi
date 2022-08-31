@@ -1,6 +1,8 @@
 package ilya.chistousov.countthefoodapi.controller;
 
+import ilya.chistousov.countthefoodapi.dto.CreateProfileDto;
 import ilya.chistousov.countthefoodapi.entity.Profile;
+import ilya.chistousov.countthefoodapi.mapper.CreateProfileDtoMapper;
 import ilya.chistousov.countthefoodapi.service.ProfileService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -12,9 +14,12 @@ public class ProfileController {
     @Autowired
     private ProfileService profileService;
 
+    @Autowired
+    private CreateProfileDtoMapper dtoMapper;
+
     @PostMapping("/create")
-    public void createProfile(@RequestBody Profile profile) {
-        profileService.createProfile(profile);
+    public void createProfile(@RequestBody CreateProfileDto profileDto) {
+        profileService.createProfile(dtoMapper.mapToProfile(profileDto));
     }
 
     @GetMapping("/{email}")

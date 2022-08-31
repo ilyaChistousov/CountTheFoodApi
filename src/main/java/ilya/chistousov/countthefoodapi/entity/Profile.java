@@ -1,7 +1,6 @@
 package ilya.chistousov.countthefoodapi.entity;
 
 import lombok.*;
-import ilya.chistousov.countthefoodapi.entity.Food;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,6 +9,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity(name = "profile")
+@Builder
 public class Profile {
 
     @Id
