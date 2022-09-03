@@ -1,6 +1,7 @@
 package ilya.chistousov.countthefoodapi.service;
 
 import ilya.chistousov.countthefoodapi.entity.Profile;
+import ilya.chistousov.countthefoodapi.entity.ProfileFood;
 import ilya.chistousov.countthefoodapi.repository.ProfileRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -36,4 +37,15 @@ public class ProfileService {
     public void deleteProfileByEmail(String email) {
         profileRepository.deleteProfileByEmail(email);
     }
+
+    public void addFoodToProfile(String email, ProfileFood food) {
+        Optional<Profile> profileByEmail = findProfileByEmail(email);
+        profileByEmail.ifPresent(
+                profile -> {
+                    profile.addFood(food);
+                    profileRepository.save(profile);
+                }
+        );
+    }
+
 }

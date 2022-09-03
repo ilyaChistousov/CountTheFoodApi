@@ -39,6 +39,11 @@ public class Profile {
     private String email;
 
     @OneToMany(cascade = CascadeType.ALL)
-    private List<Food> foods = new ArrayList<>();
+    private List<ProfileFood> foods = new ArrayList<>();
+
+    public void addFood(ProfileFood food) {
+        foods.add(food);
+    }
+
 }
 
